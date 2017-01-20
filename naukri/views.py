@@ -26,7 +26,7 @@ def index(request):
 			count = 0
 			url = request.POST["url"]
 			pageurl = url
-			for page in range(1,15):
+			for page in range(1,8):
 				print pageurl
 				naukripage = urllib2.urlopen(pageurl)
 				soup = BeautifulSoup(naukripage, "html.parser")
