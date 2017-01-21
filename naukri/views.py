@@ -23,7 +23,10 @@ def index(request):
 				writer.writerow([i["number"],i["RecruiterName"],i["tel"],i["Website"],i["EmailAddress"],i["Address"].encode("UTF-8"),i["ContactCompany"]])
 			return response
 		else:
-			count = 0
+			if 'b2' in request.POST:
+				dt = request.POST["addmore"]
+				output_list = ast.literal_eval(dt)
+			count = len(output_list)
 			url = request.POST["url"]
 			pageurl = url
 			for page in range(1,2):

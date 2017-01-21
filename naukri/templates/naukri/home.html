@@ -3,19 +3,24 @@
 {% block content %}
 
 <div class="row">
-<form method="POST" class="form-inline">
-	{% csrf_token %}
-	<input type="text" name="url" class="col-lg-8 col-sm-8 col-md-8 col-xs-8" placeholder="Enter URL" required>
- 	<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>
- 	<button type="submit" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Find</button>
-  	<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>	
-</form>
+	<form method="POST" class="form-inline">
+		{% csrf_token %}
+		<input type="text" name="url" class="col-lg-6 col-sm-6 col-md-6 col-xs-6" placeholder="Enter URL" required>
+		<input type="hidden" name="addmore" value="{{ infos }}" required> 	
+		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>	
+	 	<button type="submit" name="b1" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Find</button>
+		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>	
 
-<form method="POST" class="row form-inline">
-	{% csrf_token %}
-	<input type="hidden" name="dict" class="col-lg-10 col-sm-10 col-md-10 col-xs-10" value="{{ infos }}" required> 	
-	<button type="submit" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">CSV</button>
-</form>
+		<button type="submit" name="b2" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Add more</button>
+	</form>
+		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>	
+
+
+	<form method="POST" class="row col-lg-1 col-sm-1 col-md-1 col-xs-1 form-inline">
+		{% csrf_token %}
+		<input type="hidden" name="dict" class="" value="{{ infos }}" required> 	
+		<button type="submit" class=" btn btn-primary">CSV</button>
+	</form>
 </div>
 
 <br><br>
