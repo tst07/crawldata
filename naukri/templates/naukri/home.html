@@ -3,20 +3,20 @@
 {% block content %}
 
 <div class="row">
-	<form method="POST" class="form-inline">
+	<form method="POST" id="naukridata" class="form-inline">
 		{% csrf_token %}
-		<input type="text" name="url" class="col-lg-6 col-sm-6 col-md-6 col-xs-6" placeholder="Enter URL" required>
+		<input type="text" id="geturl" name="url" class="col-lg-6 col-sm-6 col-md-6 col-xs-6" placeholder="Enter URL" required>
 		<input type="hidden" name="addmore" value="{{ infos }}" required> 	
 		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>	
-	 	<button type="submit" name="b1" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Find</button>
+	 	<button type="submit" id="find" name="b1" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Find</button>
 		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>	
 
-		<button type="submit" name="b2" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Add more</button>
+		<button type="submit" id="add" name="b2" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Add more</button>
 	</form>
 		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>	
 
 
-	<form method="POST" class="row col-lg-1 col-sm-1 col-md-1 col-xs-1 form-inline">
+	<form method="POST" id="naukricsv" class="row col-lg-1 col-sm-1 col-md-1 col-xs-1 form-inline">
 		{% csrf_token %}
 		<input type="hidden" name="dict" class="" value="{{ infos }}" required> 	
 		<button type="submit" class=" btn btn-primary">CSV</button>
@@ -55,4 +55,24 @@
 {% endblock %}
 
 {% block domready %}
+$('#find').click(function(){
+	var getURL=document.getElementById("geturl").value;
+	var lastChar = getURL[getURL.length -1];
+
+	if(lastChar >=0 && lastChar <=9){
+		alert("looks like you pressed wrong button. Press Add more to get more jobs of same JD.");
+		return false;		
+	}
+});
+
+$('#add').click(function(){
+	var getURL=document.getElementById("geturl").value;
+	var lastChar = getURL[getURL.length -1];
+
+	if(!(lastChar >=0 && lastChar <=9)){
+		alert("looks like you pressed wrong button. Press find to get jobs of a new JD.");
+		return false;		
+	}
+});
+
 {% endblock %}
