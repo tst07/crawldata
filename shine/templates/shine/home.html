@@ -2,14 +2,13 @@
 {% load staticfiles %}
 {% block content %}
 
-<h1>Naukri</h1> <hr>
-
+<h1>Shine</h1> <hr>
 
 <div class="row">
 	<form method="POST" id="naukridata" class="form-inline">
 		{% csrf_token %}
 		<input type="text" id="geturl" name="url" class="col-lg-6 col-sm-6 col-md-6 col-xs-6" placeholder="Enter URL" required>
-		<input type="hidden" name="addmore" value="{{ infos }}" required> 	
+		<input type="hidden" name="addmore" value="{{ details }}" required> 	
 		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>	
 	 	<button type="submit" id="find" name="b1" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Find</button>
 		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>	
@@ -21,43 +20,43 @@
 
 	<form method="POST" id="naukricsv" class="row col-lg-1 col-sm-1 col-md-1 col-xs-1 form-inline">
 		{% csrf_token %}
-		<input type="hidden" name="dict" class="" value="{{ infos }}" required> 	
+		<input type="hidden" name="dict" class="" value="{{ details }}" required> 	
 		<button type="submit" class=" btn btn-primary">CSV</button>
 	</form>
 </div>
 
 <br><br>
 
-	<table class="table table-responsive table-bordered table-striped">
-	    <thead>
-	      <tr>
-	      	<th>SN.</th>
-	        <th>Recruiter Name</th>
-	        <th>Telephone</th>
-	        <th>Website</th>
-	        <th>Email Address</th>
-	        <th>Address</th>
-	        <th>Company</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-			{% for info in infos %}
-			<tr>
-					<td>{{ info.number }}</td>
-					<td>{{ info.RecruiterName }}</td>
-					<td>{{ info.tel }}</td>
-					<td>{{ info.Website }}</td>
-					<td>{{ info.EmailAddress }}</td>
-					<td>{{ info.Address }}</td>
-					<td>{{ info.ContactCompany }}</td>
-			</tr>
-			{% endfor %}
-		</tbody>
-	</table>
+<table class="table table-responsive table-bordered table-striped">
+    <thead>
+      <tr>
+      	<th>SN.</th>
+        <th>Recruiter</th>
+        <th>Email</th>
+        <th>Tel</th>
+      </tr>
+    </thead>
+
+	<tbody>
+		{% for detail in details %}
+		<tr>
+				<td>
+					{{ forloop.counter }}
+				</td>
+				{% for d in detail %}
+					<td>
+						{{ d }}
+					</td>
+				{% endfor %}
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
 
 {% endblock %}
 
 {% block domready %}
+
 $('#find').click(function(){
 	var getURL=document.getElementById("geturl").value;
 	var lastChar = getURL[getURL.length -1];

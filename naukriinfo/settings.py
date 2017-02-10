@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'naukri'
+    'naukri',
+    'shine',
+    'homeapp'
 ]
 
 MIDDLEWARE_CLASSES = [

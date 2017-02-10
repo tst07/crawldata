@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+<center>
+
+<table>
+<tr>
+	<td>
+		<h1> <a href="{% url 'naukri:index' %}"> Naukri </a> </h1>
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<h1> <a href="{% url 'shine:index' %}"> Shine </a> </h1>
+	</td>
+</tr>
+</table>
+</center>
+
+
+{% endblock %}
+
+
+{% block domready %}
+
+{% endblock %}

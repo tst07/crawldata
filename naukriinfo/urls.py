@@ -17,6 +17,8 @@ from django.conf.urls import url , include
 from django.contrib import admin
 
 urlpatterns = [
+    url(r'', include('homeapp.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'', include('naukri.urls')),
+    url(r'^naukri/', include('naukri.urls',namespace="naukri")),
+    url(r'^shine/', include('shine.urls',namespace="shine")),
 ]
