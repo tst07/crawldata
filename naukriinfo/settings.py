@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'naukri',
     'shine',
-    'homeapp'
+    'homeapp',
+    'calculator'
 ]
 
 MIDDLEWARE_CLASSES = [

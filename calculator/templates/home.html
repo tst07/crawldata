@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+<!--
+<div align="right">
+<a href="{% url 'calculator:add' %}">Add</a>
+</div>
+-->
+
+<div class="row">
+	<form method="POST" id="calcdata" class="form-inline">
+		{% csrf_token %}
+
+		<h5 class="col-lg-1 col-sm-1 col-md-1 col-xs-1">Select Job title:</h5>
+		<select class="form-control col-lg-3 col-sm-3 col-md-3 col-xs-3" id="sel1" name="jt">
+			{% for jt in jobtitles %}
+				<option>{{ jt }}</option>
+			{% endfor %}
+		</select>
+
+		<h5 class="col-lg-2 col-sm-2 col-md-2 col-xs-2">Select Number of vacancy:</h5>
+		<input type="number" min="0" name="vac" class="col-lg-3 col-sm-3 col-md-3 col-xs-3" placeholder="Enter vacancy" required>
+		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>
+
+		<button type="submit" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Submit</button>
+	</form>
+</div>
+
+<br><br>
+
+<table class="table table-responsive">
+	<thead>
+		<th>
+			Job title
+		</th>
+		<th>
+			Vacancy
+		</th>
+		<th>
+			Cost
+		</th>
+	</thead>
+
+	<tbody>
+		<tr>
+		<td>
+			{{ jt }}
+		</td>
+		<td>
+			{{ vac }}
+		</td>
+		<td>
+			{{ cost }}
+		</td>
+		</tr>
+</tbody>
+</table>
+
+{% endblock %}
+
+{% block domready %}
+
+{% endblock %}

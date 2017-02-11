@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+<div class="row">
+	<form method="POST" id="adddata" class="form-inline">
+		{% csrf_token %}
+
+		<input type="text" name="jt" class="col-lg-3 col-sm-3 col-md-3 col-xs-3" placeholder="Enter title" required>
+		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>
+
+		<input type="number" name="price" class="col-lg-3 col-sm-3 col-md-3 col-xs-3" placeholder="Enter price" required>
+
+		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>
+
+		<input type="number" name="mar" class="col-lg-2 col-sm-2 col-md-2 col-xs-2" placeholder="Enter margin" required>
+		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>
+
+		<button type="submit" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Submit</button>
+	</form>
+</div>
+
+
+{% endblock %}
+
+{% block domready %}
+
+{% endblock %}
