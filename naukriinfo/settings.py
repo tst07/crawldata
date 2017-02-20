@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'naukri',
     'shine',
     'homeapp',
+    'cid',
     'calculator'
 ]
 

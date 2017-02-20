@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<h1>Companies in Delhi</h1> <hr>
+
+<div class="row">
+	<form method="POST" id="naukridata" class="col-lg-11 col-sm-11 col-md-11 col-xs-11 form-inline row">
+		{% csrf_token %}
+		<input type="text" id="geturl" name="page" class="col-lg-4 col-sm-4 col-md-4 col-xs-4" placeholder="Page" required>
+
+		<div class="form-group" class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+		  <label for="sel1">Select list:</label>
+		  <select name="cat"  class="form-control" id="sel1">
+		  	{% for trade in trades %}
+			    <option>{{ trade }}</option>
+		    {% endfor %}
+		  </select>
+		</div>		
+		<input type="hidden" name="addmore" value="{{ details }}" required> 	
+		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>	
+	 	<button type="submit" id="find" name="b1" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Find</button>
+
+		<button type="submit" id="add" name="b2" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Add more</button>
+	</form>
+
+	<form method="POST" id="naukricsv" class="row col-lg-1 col-sm-1 col-md-1 col-xs-1 form-inline">
+		{% csrf_token %}
+		<input type="hidden" name="dict" class="" value="{{ details }}" required> 	
+		<button type="submit" class=" btn btn-primary">CSV</button>
+	</form>
+</div>
+
+<br><br>
+
+<table class="table table-responsive table-bordered table-striped">
+	<tbody>
+		{% for detail in details %}
+		<tr>
+				<td>
+					{{ detail.state }}
+				</td>
+				<td>
+					{{ detail.city }}
+				</td>
+				<td>
+					{{ detail.pin }}
+				</td>
+				<td>
+					{{ detail.website }}
+				</td>
+				<td>
+					{{ detail.turnover }}
+				</td>
+				<td>
+					{{ detail.mobile }}
+				</td>
+				<td>
+					{{ detail.phone }}
+				</td>
+				<td>
+					{{ detail.jd }}
+				</td>
+
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}
+
+{% block domready %}
+
+{% endblock %}

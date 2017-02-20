@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^naukri/', include('naukri.urls',namespace="naukri")),
     url(r'^shine/', include('shine.urls',namespace="shine")),
     url(r'^calculator/', include('calculator.urls',namespace="calculator")),
+    url(r'^cid/', include('cid.urls',namespace="cid")),
 ]
