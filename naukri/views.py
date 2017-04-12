@@ -31,8 +31,13 @@ def index(request):
 			pageurl = url
 			for page in range(1,2):
 				print pageurl
+				pageurl = urllib2.Request(pageurl, headers={'User-Agent' : "Magic Browser"})
 				naukripage = urllib2.urlopen(pageurl)
+
+				print "working till here"
 				soup = BeautifulSoup(naukripage, "html.parser")
+				print "working till here too"
+
 
 				li = []
 
@@ -47,6 +52,7 @@ def index(request):
 
 				    infourl = 'https://www.naukri.com/jd/contactDetails?file=' + x
 				    #print infourl
+				    infourl = urllib2.Request(infourl, headers={'User-Agent' : "Magic Browser"})
 				    response = urllib2.urlopen(infourl)
 				    data = json.loads(response.read())
 
