@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^shine/', include('shine.urls',namespace="shine")),
     url(r'^calculator/', include('calculator.urls',namespace="calculator")),
     url(r'^cid/', include('cid.urls',namespace="cid")),
+    url(r'^zomato/', include('zomato.urls',namespace="zomato")),
 ]

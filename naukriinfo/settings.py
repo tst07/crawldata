@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'shine',
     'homeapp',
     'cid',
-    'calculator'
+    'calculator',
+    'zomato'
 ]
 
 MIDDLEWARE_CLASSES = [

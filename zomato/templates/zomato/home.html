@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<h1>VCS Data</h1> <hr>
+
+<div class="row">
+	<form method="POST" id="zomatodata" class="form-inline">
+		{% csrf_token %}
+		<input type="text" id="geturl" name="url" class="col-lg-6 col-sm-6 col-md-6 col-xs-6" placeholder="Enter URL" required>
+		<input type="hidden" name="addmore" value="{{ infos }}" required> 	
+		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>	
+	 	<button type="submit" id="find" name="b1" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Find</button>
+		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>	
+
+		<button type="submit" id="add" name="b2" class="col-lg-1 col-sm-1 col-md-1 col-xs-1 btn btn-primary">Add more</button>
+	</form>
+		<div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>	
+
+
+	<form method="POST" id="zomatocsv" class="row col-lg-1 col-sm-1 col-md-1 col-xs-1 form-inline">
+		{% csrf_token %}
+		<input type="hidden" name="dict" class="" value="{{ infos }}" required> 	
+		<button type="submit" class=" btn btn-primary">CSV</button>
+	</form>
+</div>
+
+<br><br>
+
+	<table class="table table-responsive table-bordered table-striped">
+	    <thead>
+	      <tr>
+	        <th>Name</th>
+	        <th>Contact</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+			{% for info in infos %}
+			<tr>
+					<td>{{ info.name }}</td>
+					<td>{{ info.contact }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}
+
+{% block domready %}
+
+{% endblock %}
