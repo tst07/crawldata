@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-import requests
 import urllib2
 import json
 from bs4 import BeautifulSoup
