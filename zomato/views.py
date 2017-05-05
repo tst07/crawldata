@@ -8,8 +8,9 @@ from bs4 import BeautifulSoup
 import ast
 import csv
 
-
 # Create your views here.
+
+num_list = ['0','1','2','3','4','5','6','7','8','9']
 
 def index(request):
 	output_list = []
@@ -55,6 +56,10 @@ def index(request):
 
 				ind = companydet.find('Mobile No',0)
 				mobile_number = companydet[ind + 37:ind + 48]
+
+				if mobile_number[0] not in num_list:
+					continue
+
 				print mobile_number
 				output_list.append({'name' : company, 'contact' : mobile_number})							
 	return render(request,'zomato/home.html',{ 'infos' : output_list })
