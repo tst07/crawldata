@@ -56,10 +56,11 @@ def index(request):
 			response['Content-Disposition'] = 'attachment; filename="cid.csv"'
 			writer = csv.writer(response)
 
-			writer.writerow(["state","city","pin","website","turnover","mobile","phone","jd"])
+			writer.writerow(["website","mobile","jd"])
 
 			for i in dt:
-				writer.writerow([i["state"],i["city"],i["pin"],i["website"],i["turnover"],i["mobile"].encode("UTF-8"),i["jd"]])
+				if "website" in i.keys() and "mobile" in i.keys() and "jd" in i.keys(): 
+					writer.writerow([i["website"],i["mobile"].encode("UTF-8"),i["jd"]])
 			return response
 		else:
 			if 'b2' in request.POST:
