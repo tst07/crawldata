@@ -59,7 +59,7 @@ def index(request):
 			writer.writerow(["state","city","pin","website","turnover","mobile","phone","jd"])
 
 			for i in dt:
-				writer.writerow([i["state"],i["city"],i["pin"],i["website"],i["turnover"],i["mobile"].encode("UTF-8"),i["phone"],i["jd"]])
+				writer.writerow([i["state"],i["city"],i["pin"],i["website"],i["turnover"],i["mobile"].encode("UTF-8"),i["jd"]])
 			return response
 		else:
 			if 'b2' in request.POST:
