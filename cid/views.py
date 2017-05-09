@@ -38,11 +38,11 @@ def lalaland(temp,a):
 	return temp
 
 def index(request):
-	li = ['','Automobiles','Call Centres','Pharmaceuticals/ BioTech/ Research','BPO / KPO','Agriculture/Dairy/Fertlizer','Electrical/Electronics',
+	li = ['','Retail','Automobiles','Call Centres','Pharmaceuticals/ BioTech/ Research','BPO / KPO','Agriculture/Dairy/Fertlizer','Electrical/Electronics',
 	'Hospitals/Healthcare','Courier/ Logistics/ Packaging/ Transportation','Paints','Construction / Real  Estate',
 	'Accounting/Consulting/ Taxation','Architectural Services/ Interior Designing','Mutual Fund/ Stock Broking',
-	'Institutes - Others/ Universities','Export Houses','Hotels / Resorts','Metals/Mining','Paper/Publishing/ Printing/ Stationary'
-	'Retail','Advertising/Event Mgmt/ PR/MR','Banks','Chemical','Engineering','FMCG','IT-Software Services','Placement / HR / Training Consultants','Travel / Tourism'
+	'Institutes - Others/ Universities','Export Houses','Hotels / Resorts','Metals/Mining','Paper/Publishing/ Printing/ Stationary',
+	'Advertising/Event Mgmt/ PR/MR','Banks','Chemical','Engineering','FMCG','IT-Software Services','Placement / HR / Training Consultants','Travel / Tourism'
 	]
 	details = []
 	urls = []
